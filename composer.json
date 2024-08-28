@@ -23,14 +23,13 @@
         }
     ],
     "require": {
-        "php": "^8.1|^8.2|^8.3",
+        "php": "^8.2|^8.3",
         "illuminate/support": "^11.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "illuminate/contracts": "^11.0",
         "illuminate/routing": "*",
-        "imanghafoori/php-imports-analyzer": "^1.0",
         "laravel/pint": "^1.15",
         "orchestra/testbench": "^8.2",
         "pestphp/pest": "^2.34",
