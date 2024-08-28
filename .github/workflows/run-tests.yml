@@ -1,4 +1,4 @@
-name: Update test name
+name: Run Tests
 
 on:
   push:
