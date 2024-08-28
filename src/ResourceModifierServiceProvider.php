@@ -2,11 +2,7 @@
 
 namespace ToneflixCode\ResourceModifier;
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-use Illuminate\Support\Stringable;
-use Symfony\Component\Finder\SplFileInfo;
 use ToneflixCode\ResourceModifier\Commands\ResourceMakeCommand;
 
 /**
