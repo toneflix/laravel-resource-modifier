@@ -1,0 +1,84 @@
+{
+    "name": "toneflix-code/laravel-resource-modifier",
+    "description": "A Laravel package that intercepts and help you customize, remove or modify the meta data on your eloquent api resource response.",
+    "keywords": [
+        "api",
+        "response",
+        "respond",
+        "responder",
+        "resource",
+        "collection",
+        "eloquent",
+        "data",
+        "modify"
+    ],
+    "homepage": "https://github.com/toneflix/laravel-resource-modifier",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Toneflix Code",
+            "email": "code@toneflix.com.ng",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1|^8.2|^8.3",
+        "illuminate/support": "^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "illuminate/contracts": "^9.0|^10.0|^11.0",
+        "illuminate/routing": "*",
+        "imanghafoori/php-imports-analyzer": "^1.0",
+        "laravel/pint": "^1.15",
+        "orchestra/testbench": "^8.2",
+        "pestphp/pest": "^2.34",
+        "pestphp/pest-plugin-laravel": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "ToneflixCode\\ResourceModifier\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ToneflixCode\\ResourceModifier\\Tests\\": "tests",
+            "ToneflixCode\\ResourceModifier\\Tests\\Database\\Factories\\": "tests/database/factories"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@composer run prepare",
+        "clear": "@php vendor/bin/testbench package:purge-laravel-pay-pocket --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": [
+            "@composer run prepare",
+            "@php vendor/bin/testbench workbench:build --ansi"
+        ],
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "@composer run build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "XDEBUG_MODE=coverage ./vendor/bin/pest --coverage",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ToneflixCode\\ResourceModifier\\ResourceModifierServiceProvider"
+            ],
+            "aliases": {
+                "ResourceModifier": "ToneflixCode\\ResourceModifier\\Facades\\SocialInteraction"
+            }
+        }
+    }
+}
