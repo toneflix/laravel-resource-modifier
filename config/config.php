@@ -59,5 +59,5 @@ return [
         'last' => 'last',
         'prev' => 'prev',
         'next' => 'next',
-    ]
+    ],
 ];

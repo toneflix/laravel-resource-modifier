@@ -2,7 +2,6 @@
 
 namespace ToneflixCode\ResourceModifier\Services\Json;
 
-use ToneflixCode\ResourceModifier\Services\Json\PaginatedResourceResponse;
 use Illuminate\Http\Resources\Json\ResourceCollection as JsonResourceCollection;
 
 class ResourceCollection extends JsonResourceCollection

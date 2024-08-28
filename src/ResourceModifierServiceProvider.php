@@ -18,9 +18,8 @@ class ResourceModifierServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('resource-modifier.php'),
+                __DIR__.'/../config/config.php' => config_path('resource-modifier.php'),
             ], 'resource-modifier');
-
 
             $this->commands([
                 ResourceMakeCommand::class,
@@ -34,6 +33,6 @@ class ResourceModifierServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'resource-modifier');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'resource-modifier');
     }
 }

@@ -77,7 +77,7 @@ class ResourceMakeCommand extends GeneratorCommand
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__ . $stub;
+            : __DIR__.$stub;
     }
 
     /**
@@ -88,7 +88,7 @@ class ResourceMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Http\Resources';
+        return $rootNamespace.'\Http\Resources';
     }
 
     /**

@@ -33,7 +33,7 @@ test('can load collection with meta as configured', function () {
             'last_page' => 'lastPage',
             'current_page' => 'currentPage',
         ],
-        'resource-modifier.paginated_response_links' => []
+        'resource-modifier.paginated_response_links' => [],
     ]);
 
     User::factory(10)->create();
@@ -59,7 +59,7 @@ test('can load collection with links as configured', function () {
             'prev' => 'previousItem',
             'next' => 'nextItem',
         ],
-        'resource-modifier.paginated_response_meta' => []
+        'resource-modifier.paginated_response_meta' => [],
     ]);
 
     User::factory(10)->create();
