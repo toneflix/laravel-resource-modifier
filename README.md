@@ -58,9 +58,9 @@ The configuration file will be copied to `config/resource-modifier.php`.
 To create a resource collection, you should use the `--collection` flag when creating the resource. Or, including the word `Collection` in the resource name will indicate to Laravel that it should create a collection resource. Collection resources extend the `ToneflixCode\ResourceModifier\Services\Json\ResourceCollection` class:
 
 ```bash
-php artisan make:resource User --collection
+php artisan mod:resource User --collection
 
-php artisan make:resource UserCollection
+php artisan mod:resource UserCollection
 ```
 
 ## Testing
