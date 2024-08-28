@@ -14,7 +14,7 @@ test('can create modified resource collection', function () {
 
 test('can assure that modified resource collection is valid', function () {
 
-    $outputPath = realpath(__DIR__.'/../../vendor/orchestra/testbench-core/laravel/app/Http/Resources/XyzCollection.php');
+    $outputPath = realpath(__DIR__ . '/../../vendor/orchestra/testbench-core/laravel/app/Http/Resources/XyzCollection.php');
     if ($outputPath) {
         unlink($outputPath);
     }
@@ -25,8 +25,8 @@ test('can assure that modified resource collection is valid', function () {
     $content = '';
 
     if ($outputPath) {
-        $content = str(File::get($outputPath));
+        $content = File::get($outputPath);
     }
 
-    expect($content->contains(ResourceCollection::class))->toBeTrue();
+    expect(stripos($content, ResourceCollection::class) >= 0)->toBeTrue();
 });
