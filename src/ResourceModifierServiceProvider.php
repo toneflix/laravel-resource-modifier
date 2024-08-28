@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\Support\Stringable;
 use Symfony\Component\Finder\SplFileInfo;
+use ToneflixCode\ResourceModifier\Commands\ResourceMakeCommand;
 
 /**
  * @method \Illuminate\Support\Stringable replace(string|iterable $search, string|iterable $replace, $caseSensitive = true)
@@ -23,6 +24,11 @@ class ResourceModifierServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../config/config.php' => config_path('resource-modifier.php'),
             ], 'resource-modifier');
+
+
+            $this->commands([
+                ResourceMakeCommand::class,
+            ]);
         }
     }
 
@@ -33,10 +39,5 @@ class ResourceModifierServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'resource-modifier');
-
-        // Register the main class to use with the facade
-        $this->app->singleton('laravel-resource-modifier', function () {
-            return new ResourceModifier();
-        });
     }
 }
