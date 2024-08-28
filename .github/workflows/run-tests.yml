@@ -56,7 +56,7 @@ jobs:
         run: composer show -D
 
       - name: Execute tests
-        run: ./vendor/bin/pest --coverage --ci
+        run: ./vendor/bin/pest --ci --coverage --display-errors --testdox
         env:
           XDEBUG_MODE: coverage
 

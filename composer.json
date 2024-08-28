@@ -43,6 +43,7 @@
     "autoload-dev": {
         "psr-4": {
             "ToneflixCode\\ResourceModifier\\Tests\\": "tests",
+            "ToneflixCode\\ResourceModifier\\App\\": "app",
             "ToneflixCode\\ResourceModifier\\Tests\\Database\\Factories\\": "tests/database/factories"
         }
     },
