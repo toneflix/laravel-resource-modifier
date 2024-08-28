@@ -60,7 +60,7 @@
             "@php vendor/bin/testbench serve"
         ],
         "analyse": "vendor/bin/phpstan analyse",
-        "test": "XDEBUG_MODE=coverage ./vendor/bin/pest --coverage",
+        "test": "XDEBUG_MODE=coverage ./vendor/bin/pest --coverage --display-errors --testdox",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/pint"
     },

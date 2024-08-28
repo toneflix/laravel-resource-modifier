@@ -44,6 +44,33 @@ expect()->extend('toBeOne', function () {
 function loadEnv()
 {
     // Load the .env file
-    $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__.'/..');
+    $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
     $dotenv->safeLoad();
+}
+
+if (! function_exists('json_validate')) {
+    function json_validate($json, $depth = 512, $flags = 0)
+    {
+        return json_validate($json, $depth, $flags);
+
+        if (!is_string($json)) {
+            return false;
+        }
+
+        try {
+            json_decode($json, false, $depth, $flags | JSON_THROW_ON_ERROR);
+            return true;
+        } catch (\JsonException $e) {
+            return false;
+        }
+    }
+}
+
+function present(callable $method)
+{
+    try {
+        return $method();
+    } catch (\Throwable $th) {
+        return $th->getMessage() . " on line " . $th->getLine();
+    }
 }
