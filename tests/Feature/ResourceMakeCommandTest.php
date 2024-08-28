@@ -14,7 +14,7 @@ test('can create modified resource collection', function () {
 
 test('can assure that modified resource collection is valid', function () {
 
-    $outputPath = realpath(__DIR__.'/../../vendor/orchestra/testbench-core/laravel/app/Http/Resources/XyzCollection.php');
+    $outputPath = realpath(__DIR__ . '/../../vendor/orchestra/testbench-core/laravel/app/Http/Resources/XyzCollection.php');
     if ($outputPath) {
         unlink($outputPath);
     }
