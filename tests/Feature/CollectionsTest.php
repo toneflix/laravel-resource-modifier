@@ -9,12 +9,12 @@ test('can load collection', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn() => new UserCollection(User::paginate(6)));
+        return present(fn () => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
 
-    !json_validate($response->content()) && $response->dump();
+    ! json_validate($response->content()) && $response->dump();
 
     $response->assertOk();
 
@@ -41,12 +41,12 @@ test('can load collection with meta as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn() => new UserCollection(User::paginate(6)));
+        return present(fn () => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
 
-    !json_validate($response->content()) && $response->dump();
+    ! json_validate($response->content()) && $response->dump();
 
     $response->assertOk();
 
@@ -69,12 +69,12 @@ test('can load collection with links as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn() => new UserCollection(User::paginate(6)));
+        return present(fn () => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
 
-    !json_validate($response->content()) && $response->dump();
+    ! json_validate($response->content()) && $response->dump();
 
     $response->assertOk();
 
@@ -91,12 +91,12 @@ test('can load collection without links as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn() => new UserCollection(User::paginate(6)));
+        return present(fn () => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
 
-    !json_validate($response->content()) && $response->dump();
+    ! json_validate($response->content()) && $response->dump();
 
     $response->assertOk();
 
@@ -111,12 +111,12 @@ test('can load collection without meta as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn() => new UserCollection(User::paginate(6)));
+        return present(fn () => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
 
-    !json_validate($response->content()) && $response->dump();
+    ! json_validate($response->content()) && $response->dump();
 
     $response->assertOk();
 
@@ -131,12 +131,12 @@ test('can load collection without meta and links as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn() => new UserCollection(User::paginate(6)));
+        return present(fn () => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
 
-    !json_validate($response->content()) && $response->dump();
+    ! json_validate($response->content()) && $response->dump();
 
     $response->assertOk();
 
