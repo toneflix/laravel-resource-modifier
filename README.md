@@ -63,6 +63,25 @@ php artisan mod:resource User --collection
 php artisan mod:resource UserCollection
 ```
 
+## Overwriting the `make:resource` command
+
+If you want Laravel Resource Modifier to handle your `php artisan make:resource` command by default, you can create a new command named `ResourceMakeCommand` with the following signature:
+
+```php
+namespace App\Console\Commands;
+
+use Symfony\Component\Console\Attribute\AsCommand;
+use ToneflixCode\ResourceModifier\Commands\ResourceMakeCommand as ToneflixCodeResourceMakeCommand;
+
+#[AsCommand(name: 'make:resource')]
+class ResourceMakeCommand extends ToneflixCodeResourceMakeCommand
+{
+    protected $name = 'make:resource';
+}
+```
+
+This will overide the default `ResourceMakeCommand` as Laravel will prefer user defined commands over built in ones, so the next time you call `php artisan make:resource UserCollection`, your collection will be created with the  Laravel Resource Modifier signature.
+
 ## Testing
 
 ```bash
