@@ -70,5 +70,5 @@ return [
     |
     */
 
-    'prefer_camel_casing' => false
+    'prefer_camel_casing' => false,
 ];

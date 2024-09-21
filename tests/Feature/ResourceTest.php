@@ -10,10 +10,10 @@ test('can convert resource to camel case', function () {
     Route::get('test/users', function () use ($user) {
 
         config([
-            'resource-modifier.prefer_camel_casing' => true
+            'resource-modifier.prefer_camel_casing' => true,
         ]);
 
-        return present(fn() => new UserResource($user));
+        return present(fn () => new UserResource($user));
     });
 
     $response = $this->get('/test/users');
