@@ -29,7 +29,7 @@ class JsonResource extends IlluminateJsonResource
 
         if (config('resource-modifier.prefer_camel_casing', false) === true) {
             return collect($this->filter((array) $data))
-                ->mapWithKeys(fn($value, $key) => [str($key)->camel()->toString() => $value])
+                ->mapWithKeys(fn ($value, $key) => [str($key)->camel()->toString() => $value])
                 ->toArray();
         }
 

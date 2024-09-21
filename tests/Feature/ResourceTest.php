@@ -9,7 +9,7 @@ test('can convert resource to camel case', function () {
     $user = User::factory()->create();
 
     Route::get('test/users', function () use ($user) {
-        return present(fn() => new UserResource($user));
+        return present(fn () => new UserResource($user));
     });
 
     $response = $this->get('/test/users');
