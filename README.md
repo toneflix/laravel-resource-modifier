@@ -9,7 +9,7 @@
 
 <!-- ![GitHub Actions](https://github.com/toneflix/laravel-resource-modifier/actions/workflows/run-tests.yml/badge.svg) -->
 
-A simple Laravel package that intercepts and help you customize, remove or modify the meta data on your Eloquent API Resource response.
+A simple Laravel package that intercepts and help you customize, remove or modify the meta data on your Eloquent API Resource response, as well as automatically convert resource keys to camel case.
 
 ## Installation
 
@@ -45,7 +45,7 @@ Run `php artisan vendor:publish --tag="resource-modifier"`
 
 ## Generating Resources
 
-To generate a resource class, you may use the `mod:resource` Artisan command. By default, resources will be placed in the `app/Http/Resources` directory of your application. Resources extend the `Illuminate\Http\Resources\Json\JsonResource` class:
+To generate a resource class, you may use the `mod:resource` Artisan command. By default, resources will be placed in the `app/Http/Resources` directory of your application. Resources extend the `ToneflixCode\ResourceModifier\Services\Json\JsonResource` class:
 
 ```bash
 artisan mod:resource UserResource
@@ -80,7 +80,7 @@ class ResourceMakeCommand extends ToneflixCodeResourceMakeCommand
 }
 ```
 
-This will overide the default `ResourceMakeCommand` as Laravel will prefer user defined commands over built in ones, so the next time you call `php artisan make:resource UserCollection`, your collection will be created with the  Laravel Resource Modifier signature.
+This will overide the default `ResourceMakeCommand` as Laravel will prefer user defined commands over built in ones, so the next time you call `php artisan make:resource UserCollection`, your collection will be created with the Laravel Resource Modifier signature.
 
 ## Testing
 

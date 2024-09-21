@@ -60,4 +60,15 @@ return [
         'prev' => 'prev',
         'next' => 'next',
     ],
+
+    /*
+    |---------------------------------------------------------------------------------
+    | Camel Casing
+    |---------------------------------------------------------------------------------
+    |
+    | When enable, it will try to enforce camel casing for all resource keys
+    |
+    */
+
+    'prefer_camel_casing' => true
 ];
