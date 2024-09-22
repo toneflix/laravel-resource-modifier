@@ -9,7 +9,7 @@ test('can load collection', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn () => new UserCollection(User::paginate(6)));
+        return present(fn() => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
@@ -41,7 +41,7 @@ test('can load collection with meta as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn () => new UserCollection(User::paginate(6)));
+        return present(fn() => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
@@ -69,7 +69,7 @@ test('can load collection with links as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn () => new UserCollection(User::paginate(6)));
+        return present(fn() => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
@@ -91,7 +91,7 @@ test('can load collection without links as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn () => new UserCollection(User::paginate(6)));
+        return present(fn() => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
@@ -111,7 +111,7 @@ test('can load collection without meta as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn () => new UserCollection(User::paginate(6)));
+        return present(fn() => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
@@ -131,7 +131,7 @@ test('can load collection without meta and links as configured', function () {
     User::factory(10)->create();
 
     Route::get('test/users', function () {
-        return present(fn () => new UserCollection(User::paginate(6)));
+        return present(fn() => new UserCollection(User::paginate(6)));
     });
 
     $response = $this->get('/test/users');
@@ -142,4 +142,23 @@ test('can load collection without meta and links as configured', function () {
 
     $this->assertArrayNotHasKey('meta', $response->collect());
     $this->assertArrayNotHasKey('links', $response->collect());
+});
+
+test('can convert none paginated collection resource to camel case', function () {
+    config([
+        'resource-modifier.prefer_camel_casing' => true,
+    ]);
+
+    User::factory(10)->create();
+
+    Route::get('test/users', function () {
+        return present(fn() => new UserCollection(User::all()));
+    });
+
+    $response = $this->get('/test/users');
+
+    ! json_validate($response->content()) && $response->dump();
+
+    $response->assertOk();
+    expect($response->collect('data.0')->keys()->last())->toBeCamelCase();
 });

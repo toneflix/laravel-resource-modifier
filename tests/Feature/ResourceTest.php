@@ -21,5 +21,5 @@ test('can convert resource to camel case', function () {
     ! json_validate($response->content()) && $response->dump();
 
     $response->assertCreated();
-    expect($response->collect('data')->keys()[3] ?? '')->toBeCamelCase();
+    expect($response->collect('data')->keys()->last())->toBeCamelCase();
 });
