@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-resource-modifier` will be documented in this file
 
+## v1.1.2 - 2024-09-22
+
+- Add ability to convert none paginated collection resource to camel case.
+
+**Full Changelog**: https://github.com/toneflix/laravel-resource-modifier/compare/1.1.1...1.1.2
+
 ## v1.1.1 - 2024-09-21
 
 - [Set default value of `prefer_camel_casing` config to `false`.](https://github.com/toneflix/laravel-resource-modifier/commit/0802248e30f53e6b17f674bbe7784b6dbf56cced)
