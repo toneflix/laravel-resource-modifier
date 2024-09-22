@@ -15,7 +15,7 @@ A simple Laravel package that intercepts and help you customize, remove or modif
 
 - Complete control over how Eloquent Api Resources are rendered and generated.
 - Remove `meta` and `links` completely from the response if you want.
-- If you choose to keep `meta` and `links`, you also have total control over `meta`'s [`to`, `from`, `links`, `path`, `total`, `per_page`, `last_page`, `current_page`] properties and [`link`'s `first`, `last`, `prev`, `next`] properties.
+- If you choose to keep `meta` and `links`, you also have total control over `meta`'s [`to`, `from`, `links`, `path`, `total`, `per_page`, `last_page`, `current_page`] properties and `link`'s [`first`, `last`, `prev`, `next`] properties.
 - Automatically convert resource keys to camel casing if needed.
 - `php artisan mod:resource` to automatically generate API resources in place of `php artisan make:resource`;
 
