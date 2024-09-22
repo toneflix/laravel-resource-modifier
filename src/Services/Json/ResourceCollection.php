@@ -27,7 +27,6 @@ class ResourceCollection extends JsonResourceCollection
     /**
      * Transform the resource into a JSON array.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
     public function toArray(Request $request)
@@ -35,7 +34,7 @@ class ResourceCollection extends JsonResourceCollection
         if (config('resource-modifier.prefer_camel_casing', false) === true) {
             return $this->collection->map(function ($item) {
                 return collect($item)
-                    ->mapWithKeys(fn($value, $key) => [str($key)->camel()->toString() => $value])
+                    ->mapWithKeys(fn ($value, $key) => [str($key)->camel()->toString() => $value])
                     ->toArray();
             })->all();
         }
