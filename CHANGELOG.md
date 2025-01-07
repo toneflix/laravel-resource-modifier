@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-resource-modifier` will be documented in this file
 
+## 1.1.3 - 2025-01-07
+
+**Full Changelog**: https://github.com/toneflix/laravel-resource-modifier/compare/1.1.2...1.1.3
+
 ## v1.1.2 - 2024-09-22
 
 - Add ability to convert none paginated collection resource to camel case.
