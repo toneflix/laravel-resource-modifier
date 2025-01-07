@@ -16,6 +16,8 @@ class PaginatedResourceResponse extends JsonPaginatedResourceResponse
     {
         $paginated = $this->resource->resource->toArray();
 
+        $camelize = config('resource-modifier.prefer_camel_casing', false) === true;
+
         $default = [];
 
         if (in_array('links', config('resource-modifier.paginated_response_extra', ['meta', 'links']))) {
@@ -33,8 +35,8 @@ class PaginatedResourceResponse extends JsonPaginatedResourceResponse
             $data = $this->meta($paginated);
 
             $meta = collect(config('resource-modifier.paginated_response_meta'))
-                ->mapWithKeys(function ($value, $key) use ($data) {
-                    return [$value => $data[$key] ?? null];
+                ->mapWithKeys(function ($value, $key) use ($data, $camelize) {
+                    return [str($value)->when($camelize, fn($v) => $v->camel())->toString() => $data[$key] ?? null];
                 });
 
             $default['meta'] = $meta->toArray();
