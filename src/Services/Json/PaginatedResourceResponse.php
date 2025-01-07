@@ -36,7 +36,7 @@ class PaginatedResourceResponse extends JsonPaginatedResourceResponse
 
             $meta = collect(config('resource-modifier.paginated_response_meta'))
                 ->mapWithKeys(function ($value, $key) use ($data, $camelize) {
-                    return [str($value)->when($camelize, fn($v) => $v->camel())->toString() => $data[$key] ?? null];
+                    return [str($value)->when($camelize, fn ($v) => $v->camel())->toString() => $data[$key] ?? null];
                 });
 
             $default['meta'] = $meta->toArray();
