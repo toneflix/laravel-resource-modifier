@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-resource-modifier` will be documented in this file
 
+## v1.1.4 - 2025-01-19
+
+### What's Changed
+
+* Add support for mapped collection metadata.
+* Bump codecov/codecov-action from 4.6.0 to 5.1.2 by @dependabot in https://github.com/toneflix/laravel-resource-modifier/pull/5
+
+**Full Changelog**: https://github.com/toneflix/laravel-resource-modifier/compare/1.1.3...1.1.4
+
 ## 1.1.3 - 2025-01-07
 
 **Full Changelog**: https://github.com/toneflix/laravel-resource-modifier/compare/1.1.2...1.1.3
