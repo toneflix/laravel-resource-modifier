@@ -17,10 +17,11 @@ class PaginatedResourceResponse extends JsonPaginatedResourceResponse
         $paginated = $this->resource->resource->toArray();
 
         $camelize = config('resource-modifier.prefer_camel_casing', false) === true;
+        $response_extra = config('resource-modifier.paginated_response_extra', ['meta', 'links']);
 
         $default = [];
 
-        if (in_array('links', config('resource-modifier.paginated_response_extra', ['meta', 'links']))) {
+        if (in_array('links', $response_extra) || isset($response_extra['links'])) {
             $data = $this->paginationLinks($paginated);
 
             $links = collect(config('resource-modifier.paginated_response_links'))
@@ -28,18 +29,26 @@ class PaginatedResourceResponse extends JsonPaginatedResourceResponse
                     return [$value => $data[$key] ?? null];
                 });
 
-            $default['links'] = $links;
+            if (isset($response_extra['links'])) {
+                $default[$response_extra['links']] = $links;
+            } else {
+                $default['links'] = $links;
+            }
         }
 
-        if (in_array('meta', config('resource-modifier.paginated_response_extra', ['meta', 'links']))) {
+        if (in_array('meta', $response_extra) || isset($response_extra['meta'])) {
             $data = $this->meta($paginated);
 
             $meta = collect(config('resource-modifier.paginated_response_meta'))
                 ->mapWithKeys(function ($value, $key) use ($data, $camelize) {
-                    return [str($value)->when($camelize, fn ($v) => $v->camel())->toString() => $data[$key] ?? null];
+                    return [str($value)->when($camelize, fn($v) => $v->camel())->toString() => $data[$key] ?? null];
                 });
 
-            $default['meta'] = $meta->toArray();
+            if (isset($response_extra['meta'])) {
+                $default[$response_extra['meta']] = $meta->toArray();
+            } else {
+                $default['meta'] = $meta->toArray();
+            }
         }
 
         if (
