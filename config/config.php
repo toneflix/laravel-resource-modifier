@@ -14,7 +14,7 @@ return [
     |
     | Examples
     | 'paginated_response_extra' => ['meta', 'links'],
-    | - Or Mapped - 
+    | - Or Mapped -
     | 'paginated_response_extra' => [
     |    'meta' => 'metadata',
     |    'links' => 'linkdata',
