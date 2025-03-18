@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-resource-modifier` will be documented in this file
 
+## v1.1.5 - 2025-03-18
+
+### What's Changed
+
+* Adds support for Laravel 12
+
+**Full Changelog**: https://github.com/toneflix/laravel-resource-modifier/compare/1.1.4...1.1.5
+
 ## v1.1.4 - 2025-01-19
 
 ### What's Changed
